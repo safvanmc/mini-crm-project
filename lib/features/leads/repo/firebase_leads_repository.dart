@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mini_crm_project/features/leads/data/models/lead_model.dart';
@@ -96,12 +97,14 @@ class FirebaseLeadsRepository implements LeadsRepository {
         lastDocument: lastDocument,
       );
     } on FirebaseException catch (error, stackTrace) {
+      log(error.toString());
       throw LeadRepositoryException(
         'Unable to load leads right now. Please try again.',
         cause: error,
         stackTrace: stackTrace,
       );
     } catch (error, stackTrace) {
+      log(error.toString());
       throw LeadRepositoryException(
         'An unexpected error occurred while loading leads.',
         cause: error,

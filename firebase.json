@@ -1,1 +1,30 @@
-{"flutter":{"platforms":{"dart":{"lib/firebase_options.dart":{"projectId":"mini-crm-project-40646","configurations":{"web":"1:10338903210:web:829a4638246fff614f1cd3","windows":"1:10338903210:web:47cd8b9a0a3f25f64f1cd3"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "mini-crm-project-40646",
+          "configurations": {
+            "web": "1:10338903210:web:829a4638246fff614f1cd3",
+            "windows": "1:10338903210:web:47cd8b9a0a3f25f64f1cd3"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "site": "mini-crm-project-40646",
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
