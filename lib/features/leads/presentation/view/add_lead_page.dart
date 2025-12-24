@@ -110,6 +110,7 @@ class _AddLeadPageState extends ConsumerState<AddLeadPage> {
                 _ProjectNameField(controller: _projectController),
                 const Gap(16),
                 DropdownButtonFormField<LeadStatus>(
+                  key: ValueKey(_selectedStatus),
                   value: _selectedStatus,
                   decoration: const InputDecoration(
                     labelText: 'Status',
