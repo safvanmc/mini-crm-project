@@ -109,24 +109,35 @@ class _AddLeadPageState extends ConsumerState<AddLeadPage> {
                 const Gap(16),
                 _ProjectNameField(controller: _projectController),
                 const Gap(16),
-                DropdownButtonFormField<LeadStatus>(
-                  key: ValueKey(_selectedStatus),
-                  value: _selectedStatus,
-                  decoration: const InputDecoration(
-                    labelText: 'Status',
-                  ),
-                  items: LeadStatus.values
-                      .map(
-                        (status) => DropdownMenuItem(
-                          value: status,
-                          child: Text(status.label),
+                FormField<LeadStatus>(
+                  initialValue: _selectedStatus,
+                  builder: (field) {
+                    return InputDecorator(
+                      decoration: const InputDecoration(
+                        labelText: 'Status',
+                        border: OutlineInputBorder(),
+                      ),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<LeadStatus>(
+                          value: _selectedStatus,
+                          isExpanded: true,
+                          items: LeadStatus.values
+                              .map(
+                                (status) => DropdownMenuItem(
+                                  value: status,
+                                  child: Text(status.label),
+                                ),
+                              )
+                              .toList(),
+                          onChanged: (value) {
+                            if (value != null) {
+                              field.didChange(value);
+                              setState(() => _selectedStatus = value);
+                            }
+                          },
                         ),
-                      )
-                      .toList(),
-                  onChanged: (value) {
-                    if (value != null) {
-                      setState(() => _selectedStatus = value);
-                    }
+                      ),
+                    );
                   },
                 ),
                 const Gap(32),

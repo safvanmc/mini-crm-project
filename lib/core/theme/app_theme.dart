@@ -41,10 +41,10 @@ class AppTheme {
           ),
         ),
       ),
-      cardTheme: CardThemeData(
+      cardTheme: const CardThemeData(
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.all(Radius.circular(16)),
         ),
         margin: EdgeInsets.zero,
         color: Colors.white,
