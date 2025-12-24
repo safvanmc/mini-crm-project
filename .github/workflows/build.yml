@@ -19,7 +19,9 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.6.2'
           channel: stable
+          cache: true
 
       - name: Flutter version
         run: flutter --version
@@ -30,6 +32,10 @@ jobs:
       - name: Analyze code
         run: flutter analyze
 
+      - name: Run tests
+        run: flutter test
+        continue-on-error: true
+
       - name: Build Web
         run: flutter build web --release
 
@@ -38,3 +44,4 @@ jobs:
         with:
           name: web-build
           path: build/web
+          retention-days: 30
