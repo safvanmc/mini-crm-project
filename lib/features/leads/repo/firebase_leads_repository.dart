@@ -23,7 +23,7 @@ class FirebaseLeadsRepository implements LeadsRepository {
           sink.add(snapshot.docs.map(Lead.fromDocument).toList());
         },
         handleError: (error, stackTrace, sink) {
-          print(error);
+          log(error.toString());
           sink.addError(
             LeadRepositoryException(
               failureMessage,
@@ -50,7 +50,7 @@ class FirebaseLeadsRepository implements LeadsRepository {
         stackTrace: stackTrace,
       );
     } catch (error, stackTrace) {
-      print(error);
+      log(error.toString());
       throw LeadRepositoryException(
         'An unexpected error occurred while saving the lead.',
         cause: error,

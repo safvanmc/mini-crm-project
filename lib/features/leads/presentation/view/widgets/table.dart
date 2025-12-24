@@ -68,11 +68,11 @@ class _StatusChip extends StatelessWidget {
   Color _backgroundColor(BuildContext context) {
     switch (status) {
       case LeadStatus.newLead:
-        return Theme.of(context).colorScheme.primary.withOpacity(0.12);
+        return Theme.of(context).colorScheme.primary.withValues(alpha: 0.12);
       case LeadStatus.followUp:
-        return Colors.orange.withOpacity(0.12);
+        return Colors.orange.withValues(alpha: 0.12);
       case LeadStatus.closed:
-        return Colors.green.withOpacity(0.12);
+        return Colors.green.withValues(alpha: 0.12);
     }
   }
 
